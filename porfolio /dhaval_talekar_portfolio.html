@@ -1,0 +1,517 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: 'DM Sans', sans-serif; }
+
+.port {
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  padding: 0 0 3rem;
+}
+
+.hero {
+  background: #0a0f1e;
+  padding: 3rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(55,138,221,0.08);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 30%;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(29,158,117,0.06);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(55,138,221,0.15);
+  color: #85b7eb;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(55,138,221,0.3);
+  margin-bottom: 1.2rem;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 1rem;
+  color: #85b7eb;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+}
+
+.hero-summary {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+
+.contact-chip .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #1d9e75;
+}
+
+.section {
+  padding: 2rem 2rem 0;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--color-border-tertiary);
+}
+
+.exp-card {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+
+.exp-card.current::before { background: #1d9e75; }
+.exp-card.past::before { background: #378add; }
+.exp-card.junior::before { background: #7f77dd; }
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 8px;
+}
+
+.exp-role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.exp-period {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.exp-company {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-bullets li {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  padding-left: 14px;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-tertiary);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.skill-block {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+}
+
+.skill-block-title {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  border: 0.5px solid;
+}
+
+.tag.blue { background: #e6f1fb; color: #185fa5; border-color: #b5d4f4; }
+.tag.teal { background: #e1f5ee; color: #0f6e56; border-color: #9fe1cb; }
+.tag.purple { background: #eeedfe; color: #534ab7; border-color: #cecbf6; }
+.tag.coral { background: #faece7; color: #993c1d; border-color: #f5c4b3; }
+
+@media (prefers-color-scheme: dark) {
+  .tag.blue { background: #0c447c; color: #b5d4f4; border-color: #185fa5; }
+  .tag.teal { background: #085041; color: #9fe1cb; border-color: #0f6e56; }
+  .tag.purple { background: #3c3489; color: #cecbf6; border-color: #534ab7; }
+  .tag.coral { background: #712b13; color: #f5c4b3; border-color: #993c1d; }
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  padding: 8px 10px;
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+}
+
+.cert-icon {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.cert-icon.aws { background: #faeeda; color: #854f0b; }
+.cert-icon.ms { background: #e6f1fb; color: #185fa5; }
+.cert-icon.ggl { background: #eaf3de; color: #3b6d11; }
+.cert-icon.cisco { background: #eeedfe; color: #534ab7; }
+.cert-icon.li { background: #e6f1fb; color: #185fa5; }
+.cert-icon.iso { background: #faece7; color: #993c1d; }
+
+@media (prefers-color-scheme: dark) {
+  .cert-icon.aws { background: #633806; color: #fac775; }
+  .cert-icon.ms { background: #0c447c; color: #b5d4f4; }
+  .cert-icon.ggl { background: #27500a; color: #c0dd97; }
+  .cert-icon.cisco { background: #3c3489; color: #cecbf6; }
+  .cert-icon.li { background: #0c447c; color: #b5d4f4; }
+  .cert-icon.iso { background: #712b13; color: #f5c4b3; }
+}
+
+.edu-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.edu-card {
+  flex: 1;
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+}
+
+.edu-degree {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.edu-school {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.edu-year {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding: 1.5rem 2rem 0;
+}
+
+.stat-box {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin: 0 2rem;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cta-btn:hover { background: var(--color-background-secondary); }
+</style>
+
+<div class="port">
+
+  <div class="hero">
+    <div class="hero-badge">Cyber Security Analyst</div>
+    <div class="hero-name">Dhaval<br>Talekar</div>
+    <div class="hero-title">Cloud & Network Security · SOC · Incident Response</div>
+    <p class="hero-summary">5+ years securing enterprise networks and cloud environments. AWS certified architect with deep expertise in SIEM, vulnerability management, and ISO 27001 compliance.</p>
+    <div class="contact-row">
+      <div class="contact-chip"><span class="dot"></span> talekardhaval13@gmail.com</div>
+      <div class="contact-chip"><span class="dot"></span> +91 90994 47499</div>
+      <div class="contact-chip"><span class="dot"></span> +44 75703 23243</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years experience</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Cloud platforms</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Experience</div>
+
+    <div class="exp-card current">
+      <div class="exp-header">
+        <div class="exp-role">Cyber Security Analyst</div>
+        <div class="exp-period">Aug 2024 – Dec 2025</div>
+      </div>
+      <div class="exp-company">CybeRim · United Kingdom</div>
+      <ul class="exp-bullets">
+        <li>Monitored enterprise networks using SIEM, IDS, and DLP tools for threat detection</li>
+        <li>Led incident response investigations and produced structured technical reports</li>
+        <li>Conducted vulnerability assessments and penetration testing across cloud infrastructure</li>
+        <li>Participated in ISO 27001, Cyber Essentials, and GDPR compliance audits</li>
+      </ul>
+    </div>
+
+    <div class="exp-card past">
+      <div class="exp-header">
+        <div class="exp-role">Security Consultant</div>
+        <div class="exp-period">Jul 2020 – Sep 2022</div>
+      </div>
+      <div class="exp-company">Webburner · India</div>
+      <ul class="exp-bullets">
+        <li>Delivered end-to-end cybersecurity solutions including risk and vulnerability analysis</li>
+        <li>Configured cloud security controls, VPNs, firewalls, and network monitoring tools</li>
+        <li>Ensured compliance with ISO 27001, NIST, and GDPR standards</li>
+      </ul>
+    </div>
+
+    <div class="exp-card junior">
+      <div class="exp-header">
+        <div class="exp-role">Junior Security Analyst</div>
+        <div class="exp-period">Jan 2018 – May 2020</div>
+      </div>
+      <div class="exp-company">Revokarma IT Hub · India</div>
+      <ul class="exp-bullets">
+        <li>Supported SOC team in network security monitoring and threat analysis</li>
+        <li>Performed vulnerability scanning and maintained compliance audit records</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Technical skills</div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="skill-block-title">Cloud & DevOps</div>
+        <div class="tag-cloud">
+          <span class="tag blue">AWS EC2</span>
+          <span class="tag blue">S3</span>
+          <span class="tag blue">IAM</span>
+          <span class="tag blue">VPC</span>
+          <span class="tag blue">Lambda</span>
+          <span class="tag teal">Terraform</span>
+          <span class="tag teal">Docker</span>
+          <span class="tag teal">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Security</div>
+        <div class="tag-cloud">
+          <span class="tag coral">SIEM</span>
+          <span class="tag coral">IDS/DLP</span>
+          <span class="tag coral">Pen Testing</span>
+          <span class="tag coral">Malware Analysis</span>
+          <span class="tag coral">SOC Ops</span>
+          <span class="tag coral">Firewalls</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Compliance & Standards</div>
+        <div class="tag-cloud">
+          <span class="tag purple">ISO 27001</span>
+          <span class="tag purple">NIST</span>
+          <span class="tag purple">GDPR</span>
+          <span class="tag purple">Cyber Essentials</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Monitoring & Networking</div>
+        <div class="tag-cloud">
+          <span class="tag teal">CloudWatch</span>
+          <span class="tag teal">CloudTrail</span>
+          <span class="tag blue">Route 53</span>
+          <span class="tag blue">VPN</span>
+          <span class="tag blue">Load Balancers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Certifications</div>
+    <div class="certs-grid">
+      <div class="cert-item"><div class="cert-icon aws">AWS</div>Cloud Practitioner</div>
+      <div class="cert-item"><div class="cert-icon aws">AWS</div>Solutions Architect Associate</div>
+      <div class="cert-item"><div class="cert-icon ms">MS</div>Microsoft 365 Fundamentals</div>
+      <div class="cert-item"><div class="cert-icon ggl">G</div>IT Security — Google</div>
+      <div class="cert-item"><div class="cert-icon cisco">CS</div>Intro to Cyber Security — Cisco</div>
+      <div class="cert-item"><div class="cert-icon iso">ISO</div>ISO 27001:2022 Compliant</div>
+      <div class="cert-item"><div class="cert-icon li">LI</div>Incident Response & Forensics</div>
+      <div class="cert-item"><div class="cert-icon li">LI</div>Incident Response Planning</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Education</div>
+    <div class="edu-row">
+      <div class="edu-card">
+        <div class="edu-degree">MSc.Information Security & Digital Forensics</div>
+        <div class="edu-school">University of East London, UK</div>
+        <div class="edu-year">Jan 2024</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">B.E Computer Science Engineering</div>
+        <div class="edu-school">Parul Institute of Technology, India</div>
+        <div class="edu-year">Jan 2018</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
